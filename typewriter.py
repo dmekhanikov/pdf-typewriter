@@ -8,7 +8,7 @@ import os
 import yaml
 
 out_dir = 'pdf'
-text_yml_file = 'text.yml'
+text_yml_file = 'examples/hello-world/text.yml'
 
 inch = 72
 

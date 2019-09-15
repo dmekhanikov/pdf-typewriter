@@ -1,7 +1,7 @@
 ---
 font:
   name: Helvetica-Cyrillic-Oblique
-  file: Helvetica-Cyrillic-Oblique.ttf
+  file: examples/hello-world/Helvetica-Cyrillic-Oblique.ttf
   size: 12
   spacing: 15
 
