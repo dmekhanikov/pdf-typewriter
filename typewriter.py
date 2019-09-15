@@ -25,7 +25,7 @@ def make_canvas(output_filename, page_conf, font_conf):
 
 
 def write_string(c, x, y, string, spacing):
-    for sym in string:
+    for sym in str(string):
         c.drawString(x, y, sym)
         x += spacing
 
