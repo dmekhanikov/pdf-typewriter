@@ -46,12 +46,15 @@ def create_text_pdf(text_pdf_file, text_desc):
     page_conf = text_desc['page']
 
     c = make_canvas(text_pdf_file, page_conf, font_conf)
-    spacing = font_conf['spacing']
+    global_spacing = font_conf['spacing']
 
     for snippet in text_desc['snippets']:
         x = snippet['x']
         y = snippet['y']
         text = snippet['text']
+        spacing = snippet['spacing'] \
+            if 'spacing' in snippet \
+            else global_spacing
         write_string(c, x, y, text, spacing)
 
     c.save()
