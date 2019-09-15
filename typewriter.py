@@ -40,7 +40,7 @@ def create_text_pdf(text_pdf_file, text_desc):
 
     font_conf = text_desc['font']
 
-    if font_conf['file']:
+    if 'file' in font_conf:
         register_font(font_conf['name'], font_conf['file'])
 
     page_conf = text_desc['page']
@@ -73,7 +73,7 @@ def merge_pdfs(file1, file2, out_file):
 
 if __name__ == "__main__":
     text_yml_file = argv[1]
-    input_pdf_file = argv[2] if len(argv) > 1 else None
+    input_pdf_file = argv[2] if len(argv) > 2 else None
 
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
