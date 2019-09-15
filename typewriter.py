@@ -13,11 +13,11 @@ out_dir = 'pdf'
 text_pdf_file = out_dir + '/text.pdf'
 out_pdf_file = out_dir + '/output.pdf'
 
-inch = 72
 
-
-def make_canvas(output_filename, font_conf):
-    c = canvas.Canvas(output_filename, pagesize=(8.5 * inch, 11 * inch))
+def make_canvas(output_filename, page_conf, font_conf):
+    width = page_conf['width']
+    height = page_conf['height']
+    c = canvas.Canvas(output_filename, pagesize=(width, height))
     c.setStrokeColorRGB(0, 0, 0)
     c.setFillColorRGB(0, 0, 0)
     c.setFont(font_conf['name'], font_conf['size'])
@@ -43,7 +43,9 @@ def create_text_pdf(text_pdf_file, text_desc):
     if font_conf['file']:
         register_font(font_conf['name'], font_conf['file'])
 
-    c = make_canvas(text_pdf_file, font_conf)
+    page_conf = text_desc['page']
+
+    c = make_canvas(text_pdf_file, page_conf, font_conf)
     spacing = font_conf['spacing']
 
     for snippet in text_desc['snippets']:
@@ -65,9 +67,8 @@ def merge_pdfs(file1, file2, out_file):
             page.mergePage(input2.getPage(i))
         output.addPage(page)
 
-    output_stream = open(out_file, "wb")
-    output.write(output_stream)
-    output_stream.close()
+    with open(out_file, "wb") as output_stream:
+        output.write(output_stream)
 
 
 if __name__ == "__main__":

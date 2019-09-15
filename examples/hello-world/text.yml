@@ -5,6 +5,10 @@ font:
   size: 12
   spacing: 15
 
+page:
+  width: 612
+  height: 792
+
 snippets:
   - x: 72
     y: 720

@@ -2,13 +2,19 @@
 font:
   name: Helvetica-Cyrillic-Oblique
   file: fonts/Helvetica-Cyrillic-Oblique.ttf
-  size: 12
-  spacing: 15
+  size: 8
+  spacing: 12.5
+
+page:
+  width: 595
+  height: 842
 
 snippets:
-  - x: 72
-    y: 720
-    text: Привет,
-  - x: 72
-    y: 700
-    text: Мир!
+  - # Фамилия
+    x: 99
+    y: 698
+    text: ТРАМП
+  - # Имя Отчество
+    x: 99
+    y: 680
+    text: ДОНАЛЬД ВЛАДИМИРОВИЧ
