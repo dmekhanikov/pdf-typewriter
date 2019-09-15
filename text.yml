@@ -1,13 +1,14 @@
 ---
 font:
-  name: Helvetica-Oblique
+  name: Helvetica-Cyrillic-Oblique
+  file: Helvetica-Cyrillic-Oblique.ttf
   size: 12
   spacing: 15
 
 snippets:
   - x: 72
     y: 720
-    text: Hello,
+    text: Привет,
   - x: 72
     y: 700
-    text: World!
+    text: Мир!
