@@ -1,4 +1,9 @@
 ---
+font:
+  name: Helvetica-Oblique
+  size: 12
+  spacing: 15
+
 snippets:
   - x: 72
     y: 720
