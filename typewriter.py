@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
 from reportlab.pdfgen import canvas
-
 import os
+import yaml
 
 out_dir = 'pdf'
+text_yml_file = 'text.yml'
 
 point = 1
 inch = 72
@@ -27,10 +28,19 @@ def write_string(c, x, y, string):
 
 
 if __name__ == "__main__":
+    with open(text_yml_file, 'r') as stream:
+        text_desc = yaml.safe_load(stream)
+
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-    text_file = out_dir + '/text.pdf'
-    c = make_canvas(text_file)
-    write_string(c, 1 * inch, 10 * inch, 'Hello, World!')
+    text_pdf_file = out_dir + '/text.pdf'
+    c = make_canvas(text_pdf_file)
+
+    for snippet in text_desc['snippets']:
+        x = snippet['x']
+        y = snippet['y']
+        text = snippet['text']
+        write_string(c, x, y, text)
+
     c.save()
