@@ -4,11 +4,11 @@ from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
+from sys import argv
 import os
 import yaml
 
 out_dir = 'pdf'
-text_yml_file = 'examples/hello-world/text.yml'
 
 inch = 72
 
@@ -32,6 +32,8 @@ def register_font(name, file):
 
 
 if __name__ == "__main__":
+    text_yml_file = argv[1]
+
     with open(text_yml_file, 'r') as stream:
         text_desc = yaml.safe_load(stream)
 
